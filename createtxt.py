@@ -13,11 +13,23 @@ def listdir(path, list_name):  # 传入存储的list
 
 
 list_name = []
-path = '/Users/hou/Desktop/lecture/robotic/first-home-work/yolov7/VOCdevkit/images/train'  # 文件夹路径
+wd = os.getcwd()
+path = wd+'/VOCdevkit/images/train'  # 文件夹路径
 listdir(path, list_name)
 print(list_name)
 
 with open('./yolov7_train2.txt', 'w') as f:  # 要存入的txt
+    write = ''
+    for i in list_name:
+        write = write + str(i) + '\n'
+    f.write(write)
+
+list_name = []
+path = wd+'/VOCdevkit/images/val'  # 文件夹路径
+listdir(path, list_name)
+print(list_name)
+
+with open('./yolov7_val2.txt', 'w') as f:  # 要存入的txt
     write = ''
     for i in list_name:
         write = write + str(i) + '\n'
